@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PlotPOP - AI Movie Storyline Generator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>PlotPOP</h1>
+        <form id="story-form">
+            <label for="genre">Genre:</label>
+            <select id="genre" name="genre" required>
+                <option value="Action">Action</option>
+                <option value="Romance">Romance</option>
+                <option value="Sci-Fi">Sci-Fi</option>
+                <option value="Comedy">Comedy</option>
+                <option value="Horror">Horror</option>
+                <option value="Drama">Drama</option>
+                <option value="Fantasy">Fantasy</option>
+                <option value="Thriller">Thriller</option>
+            </select>
+            <label for="runtime">Runtime (minutes):</label>
+            <input type="number" id="runtime" name="runtime" min="10" max="240" value="90" required>
+            <label for="characters">Main Characters:</label>
+            <input type="number" id="characters" name="characters" min="1" max="10" value="3" required>
+            <button type="submit">Generate Storyline</button>
+        </form>
+        <div id="loading" style="display:none;">Generating...</div>
+        <div id="result" class="story-result"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html> 
