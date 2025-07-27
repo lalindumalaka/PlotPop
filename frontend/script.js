@@ -1,4 +1,4 @@
-// Animated gradient and waves background
+// frontend/script.js
 (function() {
     const canvas = document.getElementById('bg-canvas');
     if (!canvas) return;
