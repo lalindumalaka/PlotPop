@@ -23,9 +23,9 @@ if not OPENAI_API_KEY:
 client = OpenAI(api_key=OPENAI_API_KEY)
 executor = ThreadPoolExecutor(max_workers=4)
 
-# Simple in-memory cache (replace with Redis for production)
+
 cache = {}
-CACHE_TTL = 3600  # 1 hour
+CACHE_TTL = 3600  
 
 logging.basicConfig(
     level=logging.INFO,
@@ -51,7 +51,7 @@ app.add_middleware(
 )
 app.add_middleware(GZipMiddleware, minimum_size=1000)
 
-# Request timing middleware
+
 @app.middleware("http")
 async def add_process_time_header(request: Request, call_next):
     start_time = time.time()
@@ -166,7 +166,7 @@ async def generate_story(req: StoryRequest):
         response = await generate_openai_story(prompt)
         storyline = response.choices[0].message.content.strip()
         
-        # Cache the result
+        
         cache[cache_key] = (storyline, datetime.now())
         logger.info(f"Cached story with key: {cache_key}")
         
